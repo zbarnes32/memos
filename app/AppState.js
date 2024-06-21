@@ -9,8 +9,10 @@ class ObservableAppState extends EventEmitter {
       name: 'Example One',
       body: 'This is an example of a memo. I hope that this works.'
     }),
-    
+
   ]
+
+  activeMemo = null
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())

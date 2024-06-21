@@ -33,16 +33,15 @@
       <!--FIXME Getting the offcanvas to work-->
 
 
-
       <div class="navbar-nav">
         <!-- NAVLINKS -->
+
         <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
           aria-controls="offcanvasExample">
           <i class="mdi mdi-note"></i>Memos
         </a>
 
 
-      </div>
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
     </nav>
@@ -51,45 +50,26 @@
   <!-- SECTION -->
   <main>
 
-    <section class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div class="text-center">
-            <h1>Welcome to Memos</h1>
-            <h2>Please select a button below to get started</h2>
-            <div class="d-flex justify-content-center gap-5">
-              <a href="#/activeMemoView">
-                <button class="btn btn-primary">Create New Memo</button>
-              </a>
-              <button class="btn btn-primary">Edit Existing Memo</button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="d-flex justify-content-center">
-            <form onsumbit="">
-              <input class="form-style" type="text" name="name" placeholder="Memo's Name" minlength="3" maxlength="15"
-                required>
-              <textarea class="form-style" name="memoBody" id="memoBody" row="10"
-                placeholder="Enter your memo's details here..."></textarea>
-              <button class="btn btn-success">Save Memo</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="router-view">
       <!-- primary viewport -->
     </section>
 
-
+    <section class="container">
+      <div class="row" id="activeMemo">
+        <!-- STUB creating a formTemplate
+          <div class="col-12">
+          <div class="d-flex justify-content-center">
+            <form onsumbit="">
+              <input class="form-style" type="text" name="name" placeholder="Memo's Name" minlength="3" maxlength="15"
+                required>
+              <textarea class="form-style" name="memoBody" id="memoBody"
+                placeholder="Enter your memo's details here..."></textarea>
+              <button class="btn btn-success">Save Memo</button>
+            </form>
+          </div>
+        </div> -->
+      </div>
+    </section>
   </main>
 
   <!-- SECTION -->
@@ -99,10 +79,19 @@
     </div>
   </footer>
 
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Memos</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  <div class="memoList d-flex justify-content-center">
+    <div class="offcanvas offcanvas-start drawMenu()" tabindex="-1" id="offcanvasExample"
+      aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Memos</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div id="memoList">
+          <!-- STUB
+            <ul>Current Memos</ul>
+          <li>Test 1</li> -->
+
+        </div>
+      </div>
     </div>
   </div>
 
