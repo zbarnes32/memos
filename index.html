@@ -46,7 +46,7 @@
         
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate">
-        <button class="btn btn-success text-end" type="button">Create New Memo</button> 
+        <button class="btn btn-success text-end" type="button"><i class="mdi mdi-plus fs-6 gap-1"></i>Create New Memo</button> 
       </div>
     </nav>
   </header>
@@ -61,12 +61,18 @@
 
           <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header border-bottom sidebar">
+            <div class="offcanvas-header border-bottom border-dark sidebar">
               <h5 class="offcanvas-title" id="offcanvasExampleLabel">Current Memos</h5>
               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
+            <div class="offcanvas-body sidebar-body">
+              <div class="d-flex">
+                <input class="sidebar-input" type="text" name="name" placeholder="Create Memo" minlength="3" maxlength="15" required>
+                <input type="color" class="color-picker">
+                <button class="add-memo"><i class="mdi mdi-plus"></i>Add</button>
+                 
+              </div>
               <div id="memoList">
               
               </div>
