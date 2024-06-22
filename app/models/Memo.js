@@ -7,8 +7,7 @@ export class Memo {
 
     get MenuTemplate() {
         return `
-        <ul>Current Memos</ul>
-          <li>${this.name}</li>
+          <p class="mdi mdi-note">${this.name}</p>
         
         `
     }

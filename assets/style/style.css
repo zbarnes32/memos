@@ -1,5 +1,14 @@
 /* BASIC STYLES HERE */
+
+body {
+    background-color: rgba(176, 198, 247, 0.937);
+}
+
+.sidebar {
+    background-color: rgba(176, 198, 247, 0.937);
+}
+
 .form-style {
     width: 100vh;
-    
+
 }
