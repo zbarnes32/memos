@@ -32,27 +32,32 @@ body {
     border: black;
     height: 20px;
     width: 20px;
-    margin-left: 1.5em;
+    margin-left: 1.0em;
     margin-top: 0.25em;
     vertical-align: middle;
 }
 
 .add-memo {
     background-color: rgba(176, 198, 247, 0.937);
-    color: whitesmoke;
+    color: rgb(0, 0, 0);
     border-radius: 15px;
     box-shadow: none;
     margin-top: -5px;
-    margin-left: 3em;
+    margin-left: 1em;
     padding: 0.25em;
 }
 
 .add-memo:hover {
     background-color: rgb(162, 187, 240);
-    color: whitesmoke;
+    color: rgb(0, 0, 0);
 }
 
 .form-style {
     width: 100vh;
 
+}
+
+#memo-title {
+    color: black;
+    padding-left: 1em;
 }

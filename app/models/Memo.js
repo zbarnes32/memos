@@ -2,12 +2,13 @@ export class Memo {
     constructor(data) {
         this.name = data.name
         this.body = data.body
+        this.color = data.color
 
     }
 
     get MenuTemplate() {
         return `
-          <p class="mdi mdi-note">${this.name}</p>
+          <p class="mdi mdi-note" style="color: ${this.color};"><span id="memo-title">${this.name}</span></p>
         
         `
     }
