@@ -6,8 +6,8 @@ export class Memo {
         this.body = data.body
         this.color = data.color
         this.id = generateId()
-        this.createdAt = new Date()
-        this.lastSaved = new Date()
+        this.createdAt = data.createdAt ? new Date(data.createdAt) : new Date()
+        this.lastSaved = data.lastSaved ? new Date(data.lastSaved) : new Date()
 
     }
 
@@ -23,19 +23,29 @@ export class Memo {
     get ActiveMemoTemplate() {
         return `
         <div class="card active-memo">
-        <div class="active-memo-details text-center border-bottom">
-            <p class="fs-3 mdi mdi-note" style="color: ${this.color};"><span>${this.name}</span></p>
-            <p class="fs-6">Memo created on: ${this.createdAt}</p>
-            <p class="fs-6">Memo last saved on: ${this.lastSaved}</p>
+        <div class="active-memo-details border-bottom">
+            <div>
+            <p class="fs-3 mdi mdi-note" style="color: ${this.color};"><span id="memo-title">${this.name}</span></p>
+            <button onclick=deleteMemo() class="delete btn btn-danger"><i class="mdi mdi-delete"></i>Delete Memo</button>
+            </div>
+            <p class="fs-6">Memo created on: ${this.ShortDate}</p>
+            <p class="fs-6">Memo last saved on: ${this.LongDate}</p>
         </div>
         <div class="memo-body">
             <textarea name="body" id="body">
                 ${this.body}
             </textarea>
-            <button onclick=deleteMemo() class="delete btn btn-danger"><i class="mdi mdi-delete"></i>Delete Memo</button>
         </div>
         </div> 
         `
+    }
+
+    get ShortDate() {
+        return this.createdAt.toLocaleDateString()
+    }
+
+    get LongDate() {
+        return this.lastSaved.toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'})
     }
 }
 
