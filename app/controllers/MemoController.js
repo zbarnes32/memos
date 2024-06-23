@@ -6,8 +6,10 @@ import { setHTML } from "../utils/Writer.js";
 export class MemoController {
     constructor() {
         console.log('From the MemoController 👍')
-        this.drawMemos()
+        //this.drawMemos()
+        AppState.on('memos', this.drawMemos)
         AppState.on('activeMemo', this.drawActiveMemo)
+        memoService.loadMemos()
     }
 
     //TODO create an active memo
@@ -23,14 +25,20 @@ export class MemoController {
 
     drawMemos(){
         let memos = AppState.memos
+        console.log('memos, you there?', memos)
         let innerHTMLString = ''
         console.log('drawing memolist', memos)
         memos.forEach((memo) => {
             innerHTMLString += memo.MenuTemplate
         });
         setHTML('memoList', innerHTMLString)
-        this.totalMemos()
+        // memoService.calculateTotalMemos()
+        let totalMemos = AppState.memos
+        let memoCount = totalMemos.length
+        console.log('total count', memoCount)
+        setHTML('totalMemos', memoCount)
     }
+    
 
     drawActiveMemo(){
         const activeMemo = AppState.activeMemo
@@ -49,20 +57,27 @@ export class MemoController {
         // @ts-ignore
         form.reset()
         this.drawMemos()
+        memoService.saveMemos()
         // this.drawActiveMemo()
     }
+
+   
 
     selectActiveMemo(memoId){
         // ✅ console.log('Does the list links work?')
         memoService.selectActiveMemo(memoId)
     }
 
-    totalMemos(){
-        let totalMemos = AppState.memos
-        let memoCount = totalMemos.length
-        console.log('total count', memoCount)
-        setHTML('totalMemos', memoCount)
+    saveActiveMemo(){
+        event.preventDefault()
+        const activeForm = event.target
+        const memoMessage = activeForm.bodyDetails
+        const newMemoBody = memoMessage.value
+        console.log('active memo body test', newMemoBody)
+        memoService.saveActiveMemo(newMemoBody)
+
     }
+
 
 
 }

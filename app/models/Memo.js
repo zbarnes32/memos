@@ -26,15 +26,21 @@ export class Memo {
         <div class="active-memo-details border-bottom">
             <div>
             <p class="fs-3 mdi mdi-note" style="color: ${this.color};"><span id="memo-title">${this.name}</span></p>
-            <button onclick=deleteMemo() class="delete btn btn-danger"><i class="mdi mdi-delete"></i>Delete Memo</button>
+            
             </div>
             <p class="fs-6">Memo created on: ${this.ShortDate}</p>
             <p class="fs-6">Memo last saved on: ${this.LongDate}</p>
         </div>
         <div class="memo-body">
-            <textarea name="body" id="body">
+            <form onsubmit="app.MemoController.saveActiveMemo()">
+            <div>
+            <textarea name="bodyDetails" id="bodyDetails">
                 ${this.body}
             </textarea>
+            <button onclick=deleteMemo() class="delete btn btn-danger"><i class="mdi mdi-delete"></i>Delete Memo</button>
+            <button class="btn btn-success" type="submit">Save Memo</button>
+            </div>
+            </form>
         </div>
         </div> 
         `
