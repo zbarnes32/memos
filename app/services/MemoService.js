@@ -9,6 +9,11 @@ class MemoService {
         const newMemo = new Memo(memoData)
         memos.push(newMemo)
     }
+
+    selectActiveMemo(memoId){
+        const selectedMemo = AppState.memos.find((memo) => memo.id == memoId)
+        AppState.activeMemo = selectedMemo
+    }
 }
 
 export const memoService = new MemoService()

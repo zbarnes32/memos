@@ -38,15 +38,16 @@
           aria-controls="offcanvasExample">
           <i class="mdi mdi-note"></i>Memos
         </a> -->
-        
+
         <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-            aria-controls="offcanvasExample">
-            <i class="mdi mdi-note px-1"></i>Memos
+          aria-controls="offcanvasExample">
+          <i class="mdi mdi-note px-1"></i>Memos
         </button>
-        
+
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate">
-        <button class="btn btn-success text-end" type="button"><i class="mdi mdi-plus fs-6 gap-1"></i>Create New Memo</button> 
+        <button class="btn btn-success text-end" type="button"><i class="mdi mdi-plus fs-6 gap-1"></i>Create New
+          Memo</button>
       </div>
     </nav>
   </header>
@@ -57,7 +58,7 @@
     <section class="container-fluid">
       <div class="row">
         <div class="col-12">
-          
+
 
           <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
             aria-labelledby="offcanvasExampleLabel">
@@ -72,17 +73,36 @@
               </div>
               <div class="d-flex">
                 <form onsubmit="app.MemoController.createMemo()">
-                  <input class="sidebar-input" type="text" name="name" placeholder="Create Memo Title" minlength="3" maxlength="15" required>
+                  <input class="sidebar-input" type="text" name="name" placeholder="Create Memo Title" minlength="3"
+                    maxlength="15" required>
                   <input type="color" class="color-picker" id="selectedColor" name="color">
                   <button type="submit" class="add-memo"><i class="mdi mdi-plus"></i>Add Memo</button>
                 </form>
-                 
+
               </div>
               <div id="memoList">
-              
+
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container-fluid">
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center" id="activeMemo">
+          <!-- STUB moving to template within model
+          <div class="active-memo-details text-center border-bottom">
+            <p class="fs-3 mdi mdi-note" style="color: ${this.color};"><span>${this.name}</span></p>
+            <p class="fs-6">Memo created on: ${this.createdAt}</p>
+            <p class="fs-6">Memo last saved on: ${this.lastSaved}</p>
+          </div>
+          <div class="memo-body">
+            <textarea name="body" id="body">
+              ${this.body}
+            </textarea>
+          </div> -->
         </div>
       </div>
     </section>
@@ -100,8 +120,8 @@
                 maxlength="15" required>
             </div>
             <div class="mb-3"> -->
-              <!--NOTE consider removing this and having it dynamically being a part of the active memo-->
-              <!-- <textarea class="form-control" id="body" name="body"
+    <!--NOTE consider removing this and having it dynamically being a part of the active memo-->
+    <!-- <textarea class="form-control" id="body" name="body"
                 placeholder="Enter your memo details here..."></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Save Memo</button>

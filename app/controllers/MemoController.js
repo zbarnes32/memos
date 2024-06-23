@@ -7,6 +7,7 @@ export class MemoController {
     constructor() {
         console.log('From the MemoController 👍')
         this.drawMemos()
+        AppState.on('activeMemo', this.drawActiveMemo)
     }
 
     //TODO create an active memo
@@ -31,6 +32,12 @@ export class MemoController {
         this.totalMemos()
     }
 
+    drawActiveMemo(){
+        const activeMemo = AppState.activeMemo
+        let innerHTMLString = activeMemo.ActiveMemoTemplate
+        setHTML('activeMemo', innerHTMLString)
+    }
+
     createMemo(){
         event.preventDefault()
         // ✅ console.log('is this button working')
@@ -42,6 +49,12 @@ export class MemoController {
         // @ts-ignore
         form.reset()
         this.drawMemos()
+        // this.drawActiveMemo()
+    }
+
+    selectActiveMemo(memoId){
+        // ✅ console.log('Does the list links work?')
+        memoService.selectActiveMemo(memoId)
     }
 
     totalMemos(){
@@ -50,4 +63,6 @@ export class MemoController {
         console.log('total count', memoCount)
         setHTML('totalMemos', memoCount)
     }
+
+
 }
