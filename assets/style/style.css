@@ -20,6 +20,7 @@ textarea {
 
 .sidebar-body {
     background-color: rgba(211, 211, 211, 0.975);
+    cursor: pointer;
 }
 
 .sidebar-input {
@@ -73,6 +74,10 @@ textarea {
 .delete {
     float: right;
     padding: 5px;
+}
+
+.card-title-style {
+    background-color: #f1f2f5;
 }
 
 #memo-title {

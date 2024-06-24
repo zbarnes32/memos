@@ -23,7 +23,7 @@ export class Memo {
     get ActiveMemoTemplate() {
         return `
         <div class="card active-memo">
-        <div class="active-memo-details border-bottom">
+        <div class="active-memo-details border-bottom card-title-style">
             <div>
             <p class="fs-3 mdi mdi-note" style="color: ${this.color};"><span id="memo-title">${this.name}</span></p>
             
