@@ -42,6 +42,11 @@ export class MemoController {
 
     drawActiveMemo(){
         const activeMemo = AppState.activeMemo
+        console.log(activeMemo);
+        if (!activeMemo){
+            setHTML('activeMemo', '')
+            return
+        }
         let innerHTMLString = activeMemo.ActiveMemoTemplate
         setHTML('activeMemo', innerHTMLString)
     }
@@ -61,6 +66,15 @@ export class MemoController {
         // this.drawActiveMemo()
     }
 
+    deleteMemo(memoId){
+        console.log('Hello')
+        const confirmDelete = window.confirm('Are you sure you want to delete?')
+        if (!confirmDelete){
+            return
+        }
+        memoService.deleteMemo(memoId)
+        console.log('working?')
+    }
    
 
     selectActiveMemo(memoId){
@@ -71,6 +85,7 @@ export class MemoController {
     saveActiveMemo(){
         event.preventDefault()
         const activeForm = event.target
+        // @ts-ignore
         const memoMessage = activeForm.bodyDetails
         const newMemoBody = memoMessage.value
         console.log('active memo body test', newMemoBody)

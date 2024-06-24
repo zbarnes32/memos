@@ -3,7 +3,7 @@ import { generateId } from "../utils/GenerateId.js"
 export class Memo {
     constructor(data) {
         this.name = data.name
-        this.body = data.body
+        this.body = data.body ? data.body : ''
         this.color = data.color
         this.id = generateId()
         this.createdAt = data.createdAt ? new Date(data.createdAt) : new Date()
@@ -34,10 +34,8 @@ export class Memo {
         <div class="memo-body">
             <form onsubmit="app.MemoController.saveActiveMemo()">
             <div>
-            <textarea name="bodyDetails" id="bodyDetails">
-                ${this.body}
-            </textarea>
-            <button onclick=deleteMemo() class="delete btn btn-danger"><i class="mdi mdi-delete"></i>Delete Memo</button>
+            <textarea name="bodyDetails" id="bodyDetails">${this.body}</textarea>
+            <button onclick="app.MemoController.deleteMemo('${this.id}')" class="delete btn btn-danger"><i class="mdi mdi-delete"></i>Delete Memo</button>
             <button class="btn btn-success" type="submit">Save Memo</button>
             </div>
             </form>
