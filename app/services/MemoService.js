@@ -25,6 +25,7 @@ class MemoService {
             return
         }
         currentMemo.body = newMemoBody
+        currentMemo.lastSaved = new Date()
         AppState.emit('activeMemo')
         this.saveMemos()
     }
